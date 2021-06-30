@@ -3,7 +3,7 @@ name: Update POT file
 on:
   push:
     branches:
-    - dev
+    - resolve-composer-conflict
     # paths:
     # - '**.php'
     # - '**.js'
