@@ -22,6 +22,7 @@ jobs:
       run: |
         wp package install wp-cli/i18n-command:2.2.8
         wp package install https://github.com/pressbooks/pb-cli.git
+        composer remove pressbooks/pb-cli
         composer require jenssegers/blade:1.1.0
     - name: Update POT file
       run: wp pb make-pot . languages/pressbooks.pot --require=vendor/autoload.php --domain=pressbooks --slug=pressbooks --package-name="Pressbooks" --headers="{\"Report-Msgid-Bugs-To\":\"https://github.com/pressbooks/pressbooks/issues\"}"
