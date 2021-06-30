@@ -21,12 +21,10 @@ jobs:
     - name: Install dependencies
       run: |
         wp package install wp-cli/i18n-command:2.2.8
-        cat /home/runner/.wp-cli/packages/composer.json
         cd /home/runner/.wp-cli/packages/
         composer config --unset repositories.wp-cli
-        cd /home/runner
-        cat /home/runner/.wp-cli/packages/composer.json
-        wp package install pressbooks/pb-cli:2.1.0
+        composer require pressbooks/pb-cli:2.1.0
+        cd /home/runner/
         composer require jenssegers/blade:1.1.0
     - name: Update POT file
       run: wp pb make-pot . languages/pressbooks.pot --require=vendor/autoload.php --domain=pressbooks --slug=pressbooks --package-name="Pressbooks" --headers="{\"Report-Msgid-Bugs-To\":\"https://github.com/pressbooks/pressbooks/issues\"}"
